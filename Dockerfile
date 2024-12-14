@@ -2,7 +2,7 @@
 FROM debian:stable-slim
 EXPOSE 80/udp
 EXPOSE 80/tcp
-RUN apt-get update && apt-get install -y wget xz unzip bash curl
+RUN apt-get update && apt-get install -y wget xz-utils unzip bash curl
 RUN curl -s https://api.github.com/repos/thepeacockproject/Peacock/releases/latest \
     | grep "browser_download_url.*zip" | grep -E "linux"\
     | cut -d : -f 2,3 \
