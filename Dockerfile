@@ -13,7 +13,7 @@ RUN unzip -q Peacock.zip \
     && mv Peacock-* Peacock/ \
     && wget -q -O node.tar.xz https://nodejs.org/dist/v22.12.0/node-v22.12.0-linux-x64.tar.xz \
     && tar -xzf node.tar.xz --directory Peacock \
-    && mv ./Peacock/node-v18.18.2-linux-x64 ./Peacock/node \
+    && mv ./Peacock/node-v22.12.0-linux-x64 ./Peacock/node \
     && rm node.tar.xz
 WORKDIR /Peacock
 RUN mkdir {userdata,contractSessions}
