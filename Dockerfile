@@ -3,7 +3,7 @@ FROM debian:stable-slim
 EXPOSE 80/udp
 EXPOSE 80/tcp
 RUN apt-get update && apt-get install -y wget xz-utils unzip bash curl
-RUN curl -s https://api.github.com/repos/thepeacockproject/Peacock/releases/tags/v8.0.0-alpha.4 \
+RUN curl -s https://api.github.com/repos/thepeacockproject/Peacock/releases/tags/v8.0.0-beta.1 \
     | grep "browser_download_url.*zip" | grep -E "linux"\
     | cut -d : -f 2,3 \
     | tr -d \" \
@@ -11,9 +11,9 @@ RUN curl -s https://api.github.com/repos/thepeacockproject/Peacock/releases/tags
 RUN unzip -q Peacock.zip \
     && rm Peacock.zip \
     && mv Peacock-* Peacock/
-RUN wget -q -O node.tar.xz https://nodejs.org/dist/v22.12.0/node-v22.12.0-linux-x64.tar.xz
+RUN wget -q -O node.tar.xz https://nodejs.org/dist/v22.12.0/node-v22.14.0-linux-x64.tar.xz
 RUN tar -xf node.tar.xz --directory Peacock \
-    && mv ./Peacock/node-v22.12.0-linux-x64 ./Peacock/node \
+    && mv ./Peacock/node-v22.14.0-linux-x64 ./Peacock/node \
     && rm node.tar.xz
 WORKDIR /Peacock
 RUN mkdir {userdata,contractSessions}
