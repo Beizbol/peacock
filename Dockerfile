@@ -11,7 +11,7 @@ RUN curl -s https://api.github.com/repos/thepeacockproject/Peacock/releases/tags
 RUN unzip -q Peacock.zip \
     && rm Peacock.zip \
     && mv Peacock-* Peacock/
-RUN wget -q -O node.tar.xz https://nodejs.org/dist/v22.12.0/node-v22.14.0-linux-x64.tar.xz
+RUN wget -q -O node.tar.xz https://nodejs.org/dist/v22.14.0/node-v22.14.0-linux-x64.tar.xz
 RUN tar -xf node.tar.xz --directory Peacock \
     && mv ./Peacock/node-v22.14.0-linux-x64 ./Peacock/node \
     && rm node.tar.xz
